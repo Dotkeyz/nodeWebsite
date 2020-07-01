@@ -1,0 +1,63 @@
+body{
+    color: #0e0303;
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 80%;
+    margin: 0 auto ;
+    padding: 0 16;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer{
+    color: #888888;
+    border-top: 1px solid #eeeeee;
+    margin-top: 16px;
+    padding: 16px 0;
+}
+
+header{
+    margin-top: 16px;
+    margin-bottom: 48px;
+}
+
+h1{
+    font-size: 52px;
+    margin-bottom: 16px;
+}
+
+header a {
+    color: #888888;
+    margin-right: 16px;
+    text-decoration: none;
+}
+
+input{
+    border: 1px solid #cccccc;
+    padding: 8px;
+}
+
+button{
+    padding: 6px;
+    font-size: 14px;
+    background-color: #888888;
+    color: white;
+}
+
+.portrait{
+    width: 250px;
+}
+
+.main-content{
+    flex-grow: 1;
+}
+
+#message-body{
+    color:green;
+}
+
+#error-body{
+    color:red
+}
+
