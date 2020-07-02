@@ -3,10 +3,11 @@ const axios = require('axios')
 const express = require('express')
 const hbs = require('hbs')
 const app = express()
+const port = process.env.PORT || 3000
 
 // API DETAILS FOR WEATHER 
-API_KEY = 'bb3474a34c7838a1a5c940d01e8018bb';
-BASE_URL = 'http://api.openweathermap.org/data/2.5/weather'
+ API_KEY = 'bb3474a34c7838a1a5c940d01e8018bb';
+ BASE_URL = 'http://api.openweathermap.org/data/2.5/weather'
 
  // Setting up Templates with handlebar
  app.set('views', path.join(__dirname, '../template/views'));
@@ -71,17 +72,20 @@ app.get('/weather', (req, res) => {
 
     (async() => {
         try{
-            console.log(req.query.q)
             const response =  await axios.get(BASE_URL, {
             params: {
                 q:req.query.q,
                 APPID:API_KEY,
             }
         })
+        
         res.send(response.data)  
       }
         catch(e){
-            res.send(e)
+            res.send({
+                message: 'Please try another search',
+                error: 404
+            })
         }   
     })();
 })
@@ -95,6 +99,6 @@ app.get('*', (req,res) => {
 
 console.log('Beautiful Experience')
 // to start the server 
- app.listen(3000, ()=> {
-     console.log('The server has started on port 3000')
+ app.listen(port, ()=> {
+     console.log(`The server has started on port ${port}`)
  })
